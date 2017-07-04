@@ -9,13 +9,13 @@
 import Foundation
 
 struct ElevatorModel {
-    var speed: Int
+    var speed: Float
     var timeForOpenDoors: TimeInterval
     var timeForCloseDoors: TimeInterval
-    var currentFloor: Int = 0
-    var nextFloor: Int = 0
+    var currentFloor: Float = 0
+    var nextFloor: Float = 0
     
-    init(speed: Int, floorNumber: Int, timeForOpenDoors: TimeInterval, timeForCloseDoors: TimeInterval) {
+    init(speed: Float, floorNumber: Float, timeForOpenDoors: TimeInterval, timeForCloseDoors: TimeInterval) {
         self.speed = speed
         self.nextFloor = floorNumber
         self.timeForOpenDoors = timeForOpenDoors

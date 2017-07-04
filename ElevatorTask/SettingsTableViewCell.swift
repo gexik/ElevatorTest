@@ -8,11 +8,11 @@
 
 import UIKit
 
-fileprivate let MIN_FLOORS_COUNT = 5
-fileprivate let MAX_FLOORS_COUNT = 20
+fileprivate let MIN_FLOORS_COUNT: Float = 5.0
+fileprivate let MAX_FLOORS_COUNT: Float = 20.0
 
 protocol SettingsTableViewCellDelegate {
-    func didSetValueInInput(value: Int, cellTag: Int)
+    func didSetValueInInput(value: Float, cellTag: Float)
 }
 
 class SettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
@@ -60,16 +60,16 @@ class SettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if (textField.text?.characters.count)! > 0 {
-            guard let intNumber = Int(textField.text!) else {return}
+            guard let floatNumber = Float(textField.text!) else {return}
             
-            if (tag == 0 && (intNumber < MIN_FLOORS_COUNT || intNumber > MAX_FLOORS_COUNT) || tag == 1 && intNumber == 1) && intNumber > 0 {
+            if (tag == 0 && (floatNumber < MIN_FLOORS_COUNT || floatNumber > MAX_FLOORS_COUNT) || tag == 1 && floatNumber == 1) && floatNumber > 0 {
                 textField.text? = ""
                 return
             }
             
-            delegate?.didSetValueInInput(value: intNumber, cellTag: tag)
+            delegate?.didSetValueInInput(value: floatNumber, cellTag: Float(tag))
         } else {
-            delegate?.didSetValueInInput(value: 0, cellTag: tag)
+            delegate?.didSetValueInInput(value: 0, cellTag: Float(tag))
         }
     }
     

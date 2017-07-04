@@ -14,12 +14,21 @@ protocol MainTableViewControllerDelegate {
 
 class MainTableViewController: UITableViewController, SettingsTableViewCellDelegate {
     
-    var floorsCount: Int? = 0
-    var floorHeight: Int? = 0
-    var elevatorSpeed: Int? = 0
-    var openDoorsTime: Int? = 0
-    var closeDoorsTime: Int? = 0
-    var floorNumber: Int? = 0
+    var infoLabel: UILabel = {
+        let label = UILabel()
+        label.font = Constants.appicationFonts.mainFont
+        label.textColor = UIColor(red:1.00, green:0.81, blue:0.00, alpha:1.00)
+        label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }()
+    
+    var floorsCount: Float? = 0
+    var floorHeight: Float? = 0
+    var elevatorSpeed: Float? = 0
+    var openDoorsTime: Float? = 0
+    var closeDoorsTime: Float? = 0
+    var floorNumber: Float? = 0
 
     let cellId = "settings_cell"
     
@@ -35,6 +44,11 @@ class MainTableViewController: UITableViewController, SettingsTableViewCellDeleg
         applyUI()
         setupTableView()
         setupTableFooterView()
+        registerNotifications()
+    }
+    
+    fileprivate func registerNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didReciveNotification), name: NSNotification.Name(rawValue: "didReciveNotification"), object: nil)
     }
 
     fileprivate func applyUI() {
@@ -61,9 +75,12 @@ class MainTableViewController: UITableViewController, SettingsTableViewCellDeleg
         callFromElevatorButton.backgroundColor = UIColor(red:1.00, green:0.15, blue:0.21, alpha:1.00)
         callFromElevatorButton.addTarget(self, action: #selector(callFromElevatorButtonAction), for: .touchUpInside)
         
-        let tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 90))
+        let tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 120))
         tableFooterView.addSubview(callFromEntranceButton)
         tableFooterView.addSubview(callFromElevatorButton)
+        tableFooterView.addSubview(infoLabel)
+        
+        infoLabel.anchor(top: tableFooterView.topAnchor, left: tableFooterView.leftAnchor, buttom: callFromEntranceButton.topAnchor, right: tableFooterView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         
         let padding: CGFloat = 15
         
@@ -96,7 +113,7 @@ class MainTableViewController: UITableViewController, SettingsTableViewCellDeleg
     
     // PRAGMA - SettingsTableViewCellDelegate
     
-    func didSetValueInInput(value: Int, cellTag: Int) {
+    func didSetValueInInput(value: Float, cellTag: Float) {
         switch cellTag {
         case 0:
             floorsCount = value
@@ -129,6 +146,7 @@ class MainTableViewController: UITableViewController, SettingsTableViewCellDeleg
     }
     
     @objc fileprivate func callFromElevatorButtonAction() {
+        view.endEditing(true)
         callElevator(side: .inSide)
     }
     
@@ -140,8 +158,21 @@ class MainTableViewController: UITableViewController, SettingsTableViewCellDeleg
         guard let guardCloseDoorsTime = closeDoorsTime, guardCloseDoorsTime > 0 else {return }
         guard let guardFloorNumber = floorNumber, guardFloorNumber > 0 else {return }
         
+        if guardFloorNumber > guardFloorsCount {
+            let aletr = UIAlertController(title: nil, message: "Указанный номер этажа превышает общее кол-во этажей", preferredStyle: .alert)
+            aletr.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
+            present(aletr, animated: true, completion: nil)
+            return
+        }
+        
         ElevatorActions.shared.callElevator(side: side, speed: guardElevatorSpeed, floorNumber: guardFloorNumber, timeOpenDoors: guardOpenDoorsTime, timeCloseDoors: guardCloseDoorsTime, floosCount: guardFloorsCount, floorHeight: guardFloorHeight) { (resultString) in
             print(resultString)
         }
+    }
+    
+    @objc fileprivate func didReciveNotification(notification: Notification) {
+        guard let string = notification.object as? String else {return}
+        infoLabel.text = string
+        print(string)
     }
 }

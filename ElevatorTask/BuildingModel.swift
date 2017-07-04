@@ -9,10 +9,10 @@
 import Foundation
 
 struct BuildingModel {
-    var floosCount: Int = 5
-    var floorHeight: Int
+    var floosCount: Float = 5
+    var floorHeight: Float
     
-    init(floosCount: Int, floorHeight: Int) {
+    init(floosCount: Float, floorHeight: Float) {
         self.floosCount = floosCount
         self.floorHeight = floorHeight
     }
