@@ -10,15 +10,15 @@ import Foundation
 
 struct ElevatorModel {
     var speed: Int
-    var timeWaitingDoors: TimeInterval
+    var timeForOpenDoors: TimeInterval
+    var timeForCloseDoors: TimeInterval
+    var currentFloor: Int = 0
+    var nextFloor: Int = 0
     
-    init(speed: Int, timeWaitingDoors: TimeInterval) {
+    init(speed: Int, floorNumber: Int, timeForOpenDoors: TimeInterval, timeForCloseDoors: TimeInterval) {
         self.speed = speed
-        self.timeWaitingDoors = timeWaitingDoors
-        
-
+        self.nextFloor = floorNumber
+        self.timeForOpenDoors = timeForOpenDoors
+        self.timeForCloseDoors = timeForCloseDoors
     }
 }
-
-
-//Time between opening and closing doors

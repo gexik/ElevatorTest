@@ -14,11 +14,13 @@
 		DA2F8A9E1F0ABA9A00B2E876 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F8A9D1F0ABA9A00B2E876 /* Extensions.swift */; };
 		DA2F8AA01F0ABD3500B2E876 /* ElevatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F8A9F1F0ABD3500B2E876 /* ElevatorModel.swift */; };
 		DA2F8AA21F0ABF9A00B2E876 /* BuildingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F8AA11F0ABF9A00B2E876 /* BuildingModel.swift */; };
-		DA2F8AA41F0ACC9500B2E876 /* BuildingSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F8AA31F0ACC9500B2E876 /* BuildingSettingsTableViewController.swift */; };
+		DA2F8AA41F0ACC9500B2E876 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F8AA31F0ACC9500B2E876 /* MainTableViewController.swift */; };
 		DA2F8AA61F0AD15F00B2E876 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F8AA51F0AD15F00B2E876 /* Constants.swift */; };
 		DA2F8AA81F0AD78D00B2E876 /* CustomTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F8AA71F0AD78D00B2E876 /* CustomTitleLabel.swift */; };
 		DA2F8AAA1F0AE18200B2E876 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F8AA91F0AE18200B2E876 /* CustomTextField.swift */; };
 		DA2F8AAD1F0AF85B00B2E876 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F8AAC1F0AF85B00B2E876 /* SettingsTableViewCell.swift */; };
+		DAEF2B011F0B4D2B002AAF1B /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEF2B001F0B4D2B002AAF1B /* CustomButton.swift */; };
+		DAEF2B041F0B7513002AAF1B /* ElevatorActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEF2B031F0B7513002AAF1B /* ElevatorActions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,11 +33,13 @@
 		DA2F8A9D1F0ABA9A00B2E876 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DA2F8A9F1F0ABD3500B2E876 /* ElevatorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElevatorModel.swift; sourceTree = "<group>"; };
 		DA2F8AA11F0ABF9A00B2E876 /* BuildingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingModel.swift; sourceTree = "<group>"; };
-		DA2F8AA31F0ACC9500B2E876 /* BuildingSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingSettingsTableViewController.swift; sourceTree = "<group>"; };
+		DA2F8AA31F0ACC9500B2E876 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		DA2F8AA51F0AD15F00B2E876 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DA2F8AA71F0AD78D00B2E876 /* CustomTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTitleLabel.swift; sourceTree = "<group>"; };
 		DA2F8AA91F0AE18200B2E876 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		DA2F8AAC1F0AF85B00B2E876 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		DAEF2B001F0B4D2B002AAF1B /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		DAEF2B031F0B7513002AAF1B /* ElevatorActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElevatorActions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 		DA2F8A851F0AA2BA00B2E876 /* ElevatorTask */ = {
 			isa = PBXGroup;
 			children = (
+				DAEF2B021F0B74CC002AAF1B /* Classes */,
 				DA2F8A9A1F0AB95900B2E876 /* Controllers */,
 				DA2F8A991F0AB94300B2E876 /* Views */,
 				DA2F8A981F0AB93B00B2E876 /* Models */,
@@ -92,6 +97,7 @@
 				DA2F8AAB1F0AF83F00B2E876 /* Cells */,
 				DA2F8AA71F0AD78D00B2E876 /* CustomTitleLabel.swift */,
 				DA2F8AA91F0AE18200B2E876 /* CustomTextField.swift */,
+				DAEF2B001F0B4D2B002AAF1B /* CustomButton.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -100,7 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				DA2F8A881F0AA2BA00B2E876 /* MainNavigationViewController.swift */,
-				DA2F8AA31F0ACC9500B2E876 /* BuildingSettingsTableViewController.swift */,
+				DA2F8AA31F0ACC9500B2E876 /* MainTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -131,6 +137,14 @@
 				DA2F8AAC1F0AF85B00B2E876 /* SettingsTableViewCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		DAEF2B021F0B74CC002AAF1B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DAEF2B031F0B7513002AAF1B /* ElevatorActions.swift */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,9 +226,11 @@
 				DA2F8AA61F0AD15F00B2E876 /* Constants.swift in Sources */,
 				DA2F8AA81F0AD78D00B2E876 /* CustomTitleLabel.swift in Sources */,
 				DA2F8A871F0AA2BA00B2E876 /* AppDelegate.swift in Sources */,
-				DA2F8AA41F0ACC9500B2E876 /* BuildingSettingsTableViewController.swift in Sources */,
+				DAEF2B011F0B4D2B002AAF1B /* CustomButton.swift in Sources */,
+				DA2F8AA41F0ACC9500B2E876 /* MainTableViewController.swift in Sources */,
 				DA2F8AAD1F0AF85B00B2E876 /* SettingsTableViewCell.swift in Sources */,
 				DA2F8AAA1F0AE18200B2E876 /* CustomTextField.swift in Sources */,
+				DAEF2B041F0B7513002AAF1B /* ElevatorActions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +386,7 @@
 				DA2F8A971F0AA2BA00B2E876 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

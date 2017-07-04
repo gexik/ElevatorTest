@@ -30,6 +30,8 @@ class CustomTextField: UITextField {
         borderStyle = .roundedRect
         keyboardAppearance = .dark
         keyboardType = .numberPad
+        autocorrectionType = .no
+        autocapitalizationType = .none
         clearButtonMode = .whileEditing
     }
     
